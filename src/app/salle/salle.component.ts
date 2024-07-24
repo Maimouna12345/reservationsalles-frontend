@@ -100,6 +100,8 @@ reserverSalle(arg0: any) {
       next: data =>{
         console.log(data);
         this.sallesAvailable=data;
+        console.log(this.sallesAvailable);
+        
         this.router.navigateByUrl('salles');
        
       
