@@ -1,0 +1,23 @@
+<div class="container p-3">
+    <div class="card  col-md-5  offset-4">
+          <div class="card-header">Ajouter une Salle</div>
+          <div class="card-body">
+              <form  #agenceForm=ngForm (ngSubmit)="ajouterSalle() ">
+                  <div class="mb-3">
+                      <input  hidden type="number" class="form-control"  aria-describedby="id"  name="id"  [(ngModel)]="id"  required  >
+                   </div>
+
+                  <div class="mb-3">
+                     <label for="nom" class="form-label">Nom </label> 
+                     <input type="text" class="form-control"  aria-describedby="nom"  name="nom"  [(ngModel)]="nom"  required  >
+        
+                  </div>
+                  <div class="mb-3">
+                   <label for="capacite" class="form-label">capacite</label> 
+                   <input type="text" class="form-control"  aria-describedby="capacite" name="capacite"  [(ngModel)]="capacite"> 
+                </div>
+                <button  [disabled]="salleForm.invalid" type="submit" class="btn btn-success">Enrégistrer<i class="bi bi-building-add p-1"></i></button>
+             </form>
+          </div>
+    </div>
+</div>

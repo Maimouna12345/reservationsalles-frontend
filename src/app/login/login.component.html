@@ -1,0 +1,21 @@
+<div class="container p-3">
+    <div class="card  col-md-5  offset-4">
+          <div class="card-header text-white"  style="background-color: #D70514  !important; ">Login</div>
+          <div class="card-body">
+              <form  #loginForm=ngForm (ngSubmit)="authentification() ">
+                  <div class="mb-3">
+                   <label for="email" class="form-label">Email</label> 
+                   <input type="text" class="form-control"  aria-describedby="email" name="email"  [(ngModel)]="email"> 
+                  </div>
+                  
+                  <div class="mb-3">
+                   <label for="mot de passe" class="form-label">Mot de passe</label> 
+                   <input type="text" class="form-control"  aria-describedby="motdepasse"  name="motdepasse"  [(ngModel)]="motdepasse"> 
+                  </div>
+
+                <button  [disabled]="loginForm.invalid" type="submit" class="btn btn-success">Se connecter</button>
+             </form>
+          </div>
+    </div>
+</div>
+

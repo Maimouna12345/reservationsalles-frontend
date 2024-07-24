@@ -1,0 +1,43 @@
+<div class="container p-3">
+
+
+
+    <div class="container px-4 ">
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3"><h2> Liste de mes réservations</h2></div>
+          </div>
+          <!-- <div class="col text-end">
+            <div class="p-3"><button class="btn btn-success"  (click)="ajouterreservations()"><i class="bi bi-plus-circle-fill p-1"></i>Ajouter</button></div>
+          </div> -->
+        </div>
+      </div>
+    
+       
+     @if(reservations){
+        <table class="table  table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col"> Heure de Début</th>
+                <th scope="col">Heure de Fin</th>
+                <th scope="col">Annuler</th>
+                <th scope="col">Modifier</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for (reservation of reservations._embedded.reservations ; track reservation.nom) {
+                 <tr>
+                    <td>{{ reservation.id }}</td>
+                    <td>{{ reservation.dateHeureDebut  | date : 'short'}}</td>
+                    <td>{{ reservation.dateHeureFin  | date : 'short'}}</td>
+                    <td (click)="annulerReservation(reservation.id)"><span  class="btn btn-danger"><i class="bi bi-trash-fill "></i></span></td>
+                    <td><span class="btn btn-warning"><i class="bi bi-pencil"></i></span></td>
+                  </tr>
+            }
+            </tbody>
+          </table>
+        }
+       
+      
+      </div>

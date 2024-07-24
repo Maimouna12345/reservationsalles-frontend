@@ -1,0 +1,32 @@
+<div class="container p-3">
+    <div class="card  col-md-5  offset-4">
+          <div class="card-header">Ajouter un utilisateur</div>
+          <div class="card-body">
+              <form  #utilisateurForm=ngForm (ngSubmit)="addUtilisateur() ">
+                  <div class="mb-3">
+                      <input  hidden type="number" class="form-control"  aria-describedby="id"  name="id"  [(ngModel)]="id"  required  >
+                   </div>
+
+                  <div class="mb-3">
+                     <label for="nom" class="form-label">Nom </label> 
+                     <input type="text" class="form-control"  aria-describedby="nom"  name="nom"  [(ngModel)]="nom"  required  >
+        
+                  </div>
+                  <div class="mb-3">
+                   <label for="email" class="form-label">Email</label> 
+                   <input type="text" class="form-control"  aria-describedby="email" name="email"  [(ngModel)]="email"> 
+                </div>
+                <div class="mb-3">
+                   <label for="numTelephone" class="form-label">NumTelephone</label> 
+                   <input type="text" class="form-control"  aria-describedby="NumTelephone"  name="NumTelephone"  [(ngModel)]="NumTelephone"> 
+                </div>
+                <div class="mb-3">
+                    <label for="departement" class="form-label">Departement</label> 
+                    <input type="text" class="form-control"  aria-describedby="departement"  name="departement"  [(ngModel)]="departement"> 
+                 </div>
+
+                <button  [disabled]="utilisateurForm.invalid" type="submit" class="btn btn-success">Enregistrer<i class="bi bi-person-add p-1"></i>  </button>
+             </form>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container p-3">
+      <div class="card  col-md-5  offset-4">
+            <div class="card-header">Ajouter une Agence</div>
+            <div class="card-body">
+                <form  #agenceForm=ngForm (ngSubmit)="ajouterAgence() ">
+                    <div class="mb-3">
+                        <input  hidden type="number" class="form-control"  aria-describedby="id"  name="id"  [(ngModel)]="id"  required  >
+                     </div>
+
+                    <div class="mb-3">
+                       <label for="nom" class="form-label">Nom </label> 
+                       <input type="text" class="form-control"  aria-describedby="nom"  name="nom"  [(ngModel)]="nom"  required  >
+          
+                    </div>
+                    <div class="mb-3">
+                     <label for="adresse" class="form-label">Adresse</label> 
+                     <input type="text" class="form-control"  aria-describedby="adresse" name="adresse"  [(ngModel)]="adresse"> 
+                  </div>
+                  <div class="mb-3">
+                     <label for="codePostal" class="form-label">Code Postal</label> 
+                     <input type="text" class="form-control"  aria-describedby="codePostal"  name="codePostal"  [(ngModel)]="codePostal"> 
+                  </div>
+                  <button  [disabled]="agenceForm.invalid" type="submit" class="btn btn-success">sauvegarder<i class="bi bi-plus-circle-fill  p-1"></i></button>
+               </form>
+            </div>
+      </div>
+</div>

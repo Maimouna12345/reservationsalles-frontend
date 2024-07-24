@@ -1,0 +1,45 @@
+  <div class="container p-3">
+
+
+
+<div class="container px-4 ">
+    <div class="row gx-5">
+      <div class="col">
+       <div class="p-3"><h2> Liste des agences</h2></div>
+      </div>
+      <div class="col text-end">
+        <div class="p-3"><button class="btn btn-success"  (click)="ajouterAgence()"><i class="bi bi-plus-circle-fill p-1"></i>Ajouter</button></div>
+      </div>
+    </div>
+  </div>
+
+   
+ @if(agences){
+    <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Code Postal</th>
+            <th scope="col">Supprimer</th>
+            <th scope="col">Modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for (agence of agences._embedded.agences ; track agence.nom) {
+             <tr>
+                <td>{{ agence.id }}</td>
+                <td>{{ agence.nom }}</td>
+                <td>{{ agence.adresse }}</td>
+                <td>{{ agence.codePostal }}</td>
+                <td (click)="deleteAgence(agence.id)"><span  class="btn btn-danger"><i class="bi bi-trash-fill "></i></span></td>
+                <td><span class="btn btn-warning"><i class="bi bi-pencil"></i></span></td>
+              </tr>
+        }
+        </tbody>
+      </table>
+    }
+   
+  
+  </div>

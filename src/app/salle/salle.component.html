@@ -1,0 +1,72 @@
+<div class="container p-3">
+
+
+
+    <div class="container px-4 ">
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3"><h2> Liste des salles</h2></div>
+          </div>
+          @if(this.loginService.rolesName.includes("ADMIN")){
+           <div class="col text-end">
+            <div class="p-3"><button class="btn btn-success"  (click)="ajouterSalle()"><i class="bi bi-plus-circle-fill p-1"></i>Ajouter</button></div>
+          </div> 
+        }
+
+        </div>
+        <div>
+            <div class="row">
+             
+              <div class="col">
+                <input type="datetime" class="form-control" placeholder="2024-07-19T10:00:00	 " name="dateHeureDebut"   [(ngModel)]="dateHeureDebut"  required>
+              </div>
+              <div class="col">
+                <input type="datetime" class="form-control" placeholder="2024-07-19T1:00:00 " name="dateHeureFin"   [(ngModel)]="dateHeureFin" >
+              </div>
+              <div class="col">
+                <button (click)="searchSalle()" class="btn btn-outline-success" type="submit" >Search</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    
+
+
+@if(salles){
+    <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Capacite</th>
+            <th scope="col">Details</th>
+            @if(this.loginService.rolesName.includes("ADMIN")){
+            <th scope="col">Supprimer</th> 
+            }
+            @if(showBtnReserved){
+              <th scope="col">Reserver</th>
+            }
+            
+
+          </tr>
+        </thead>
+        <tbody>
+            @for(salle of (showBtnReserved ? sallesAvailable._embedded.salles :  salles._embedded.salles) ; track salle.nom) {
+                <tr>
+                   <td>{{ salle.id }}</td>
+                   <td>{{ salle.nom }}</td>
+                   <td>{{ salle.capacite }}</td>
+                   <td><button class="btn "><i class="bi bi-eye-fill"></i></button></td>
+                   @if(this.loginService.rolesName.includes("ADMIN")){
+                    <td (click)="deleteSalles(salle.id)"><span  class="btn btn-danger"><i class="bi bi-trash-fill "></i></span></td>
+                   }
+                   @if(showBtnReserved){
+                    <td (click)="reserverSalle(salle.id)"><span  class="btn btn-warning"><i class="bi bi-calendar-date"></i></span></td>
+                   }
+                </tr>
+           }
+           </tbody>                                                   
+         </table>
+
+
+ }
